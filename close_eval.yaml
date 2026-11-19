@@ -1,0 +1,13 @@
+# 评估配置（3 类，对应 add_face.pt）
+path: ./open-close-datasets  # dataset root dir (relative to this file)
+train: train
+val: val
+test: test
+
+nc: 3
+
+# Classes
+names:
+  0: close
+  1: open
+  2: face

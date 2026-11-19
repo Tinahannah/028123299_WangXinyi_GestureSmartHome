@@ -1,0 +1,12 @@
+path: ../datasets/open-close-datasets
+train: train
+val: val
+test: test
+
+nc: 3
+
+# Classes
+names:
+  0: close
+  1: open
+  2: face

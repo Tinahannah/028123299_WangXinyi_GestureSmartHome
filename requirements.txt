@@ -1,0 +1,8 @@
+# 手势控制智能家具 Agent — 依赖清单
+# 运行环境：conda 的 pytorch 环境（已含 torch / ultralytics / opencv / numpy）
+#   /opt/anaconda3/envs/pytorch/bin/python
+ultralytics>=8.3
+opencv-python>=4.7
+paho-mqtt>=2.0
+torch>=2.0
+numpy>=1.24
