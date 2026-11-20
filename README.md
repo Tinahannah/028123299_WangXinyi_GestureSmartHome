@@ -30,6 +30,8 @@
 │   ├── detect/                  evaluate.py 评估时生成的检测图（含 val~val10）
 │   ├── agent_log.txt            运行日志示例
 │   └── fontlist-v330.json       OpenCV 中文字体缓存文件
+├── esp32/                       ESP32 接收端程序
+│   └── esp32_light.ino          订阅 MQTT 指令并驱动灯具（WiFi 信息留空）
 ├── 实际演示视频.mp4              真实硬件演示（手势 + ESP32 + 灯具）
 ├── 模拟演示视频.mp4              模拟模式演示（识别框 + 终端日志）
 └── README.md                    本说明文件
@@ -82,6 +84,12 @@ python evaluate.py
 ```
 
 输出 mAP@0.5、mAP@0.5:0.95、Precision、Recall 及每类指标。
+
+### 5. ESP32 接收端烧录
+
+用 Arduino IDE 打开 `esp32/esp32_light.ino`，在文件开头填入自己的 WiFi 名称和密码后烧录到 ESP32。程序会连接 `broker.emqx.io` 并订阅 `esp32-client-123/helloworld` 主题：收到 `"1"` 点亮灯具，收到 `"0"` 熄灭灯具，与 `agent.py` 发送的指令一致。
+
+> 说明：代码中的 `emqx` / `public` 是 EMQX 公共测试 Broker 的公开演示账号，不是个人隐私；WiFi 名称与密码在提交版本中已留空。
 
 ### 常用可选参数
 
